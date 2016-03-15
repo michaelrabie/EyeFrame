@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>JS-PingPong</title>
+<style> <!--
+BODY, P, SPAN, DIV, TABLE, TD, TH, UL, OL, LI {
+  font-family: Arial, Helvetica;
+  font-size: 14px;
+  color: black;
+}
+.code {
+  font-family: Courier New, Monospace;
+  font-size: 12px;
+  margin: 10px;
+  padding: 0px;
+  color: blue;
+}
+--> </style>
+</head>
+<body style="margin:10px">
+<h4>Introduction</h4>
+This is a DHTML version of the famous video game Pong - one of the very first video games.
+It looks like this:
+<br><br>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td width="400" height="250" valign="top">
+<script language="JavaScript" src="pingpong.js"></script>
+</td>
+</tr></table><br>
+The player who scores 15 points first wins the game.
+<br><br>
+This script was tested with the following operating systems and browsers:
+<br><br>
+<table border="0" cellspacing="0" cellpadding="2"><tr valign="top">
+<td nowrap="nowrap"><b>Windows XP:</b></td><td>IE 6 - 8, NN 4 + 7, Opera 7 + 9, Firefox 2 + 3, Chrome 3</td>
+</tr><tr valign="top">
+<td nowrap="nowrap"><b>Mac OS X:</b></td><td>IE 5, Safari 1</td>
+</tr></table><br>
+If you use another browser or operating system, this script may not work for you - sorry.
+<h4>Notes</h4>
+<ul>
+<li>In some browsers you won't hear any sound.</li>
+<li>NN 4 on Windows and IE 5 on Mac OS don't view elements (text etc.) below the game area properly;
+they will appear underneath the game area instead.</li>
+<li>IE 5 and Safari 1 on Mac OS show a very poor performance (game is too slow).</li>
+<li>Movement with arrow keys doesn't work with Opera 7 and NN 4 on Windows and Safari 1 on Mac OS;
+Safari 1 and Opera 7 actually don't recognize any key.</li>
+</ul>
+<h4>Usage</h4>
+Adapt the configuration to your needs and insert this line into your HTML body where you want the
+game to appear:
+<pre class="code">
+&lt;script language="JavaScript" src="pingpong.js"&gt;&lt;/script&gt;
+</pre>
+</body>
+</html>
