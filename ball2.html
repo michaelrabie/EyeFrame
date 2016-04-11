@@ -33,7 +33,16 @@ function init() {
   BRICKWIDTH = (WIDTH/NCOLS) - 1;
   canvasMinX = $(".canvas").offset().left;
   canvasMaxX = canvasMinX + WIDTH;
-  intervalId = setInterval(draw, 25);
+  intervalId = setInterval(draw, 33);
+  if($('.dropdown_btn').val() == "Hard") {
+  	intervalId = setInterval(draw, 25);
+  }
+  if($('.dropdown_btn').val() == "Medium") {
+  	intervalId = setInterval(draw, 33);
+  }
+  if($('.dropdown_btn').val() == "Easy") {
+  	intervalId = setInterval(draw, 39);
+  }
 }
 
 function circle(x,y,r) {
@@ -129,7 +138,7 @@ function draw() {
   if (x + dx + ballr > WIDTH || x + dx - ballr < 0)
     dx = -dx;
 
-  if (y + dy - ballr < 0)
+  if (y + dy - ballr < 0) 
     dy = -dy;
   else if (y + dy + ballr > HEIGHT - paddleh) {
     if (x > paddlex && x < paddlex + paddlew) {
@@ -137,8 +146,13 @@ function draw() {
       dx = 8 * ((x-(paddlex+paddlew/2))/paddlew);
       dy = -dy;
     }
-    else if (y + dy + ballr > HEIGHT)
+    else if (y + dy + ballr > HEIGHT) {
       clearInterval(intervalId);
+    }
+    else {
+    	//game over
+    	game_over();
+    }
   }
  
   x += dx;

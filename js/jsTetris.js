@@ -123,6 +123,7 @@ Created by: Cezary Tomczak | http://gosu.pl/Licensed under: BSD
  * document.getElementById("tetris-nextpuzzle") cache ?
  *
  */
+
 function Tetris() {
 
     var self = this;
@@ -183,12 +184,7 @@ function Tetris() {
         self.puzzle.stop();
         document.getElementById("tetris-nextpuzzle").style.display = "none";
         document.getElementById("tetris-gameover").style.display = "block";
-        if (this.highscores.mayAdd(this.stats.getScore())) {
-            var name = prompt("Game Over !\nEnter your name:", "");
-            if (name && name.trim().length) {
-                this.highscores.add(name, this.stats.getScore());
-            }
-        }
+        game_over();
     }
 
     /**
@@ -261,6 +257,7 @@ function Tetris() {
 
     // game menu
     $( ".startButton" ).click(function() { helpwindow.close(); highscores.close(); self.start(); this.blur(); });
+
     document.getElementById("tetris-menu-reset").onclick = function() { helpwindow.close(); highscores.close(); self.reset(); this.blur(); }
 
     // help
@@ -715,9 +712,9 @@ function Tetris() {
                 [0,0,0]
             ],
             [
-                [1,0,0],
+                [0,0,0],
                 [1,1,1],
-                [0,0,0]
+                [0,0,1]
             ],
             [
                 [0,1,1],
@@ -762,6 +759,15 @@ function Tetris() {
             this.nextType = random(this.puzzles.length);
             this.position = 0;
             this.speed = 450;
+            if($('.dropdown_btn').val() == "Easy") {
+                this.speed=600;
+            }
+            if($('.dropdown_btn').val() == "Medium") {
+                this.speed=450;
+            }
+            if($('.dropdown_btn').val() == "Hard") {
+                this.speed=300;
+            }
             this.running = false;
             this.stopped = false;
             this.board = [];
